@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moje zgłoszenia</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .report {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #5b5bff;
+            color: white;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        .report button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .report .accept {
+            color: green;
+        }
+
+        .report .reject {
+            color: red;
+        }
+
+        .report .pending {
+            color: gray;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5b5bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Moje zgłoszenia</h1>
+
+    {% for report in reports %}
+    <div class="report">
+        <span>{{ report.title }}</span>
+        <span>
+            {% if report.status == 'zaakceptowane' %}
+                <button class="accept">✔</button>
+            {% elif report.status == 'odrzucone' %}
+                <button class="reject">✖</button>
+            {% else %}
+                <button class="pending">...</button>
+            {% endif %}
+        </span>
+
+        {% if session['role'] == 'admin' %}
+        <form method="post" action="/update_status/{{ report.id }}">
+            <select name="status">
+                <option value="zaakceptowane">Zaakceptowane</option>
+                <option value="odrzucone">Odrzucone</option>
+                <option value="oczekujące">Oczekujące</option>
+            </select>
+            <button type="submit">Zmień</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <a href="/" class="back-button">Powrót</a>
+</body>
+</html>

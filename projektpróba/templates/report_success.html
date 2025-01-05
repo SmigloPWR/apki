@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zgłoś pojazd</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+
+        .report-container {
+            width: 90%;
+            max-width: 400px;
+            margin-top: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .report-container img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .vehicle-selection {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .vehicle-option {
+            width: 70px;
+            height: 70px;
+            border: 2px solid #5b5bff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .vehicle-option img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .vehicle-option:hover {
+            background-color: #eaeaff;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #5b5bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #4a4acb;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-container">
+        <h2>Zgłoś pojazd</h2>
+
+        <!-- Formularz zgłoszenia -->
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="photo" accept="image/*" required><br><br>
+
+            <div class="vehicle-selection">
+                <label>
+                    <input type="radio" name="vehicle_type" value="rower" style="display:none;" required>
+                    <div class="vehicle-option">
+                        <img src="https://via.placeholder.com/50" alt="Rower">
+                    </div>
+                </label>
+                <label>
+                    <input type="radio" name="vehicle_type" value="auto" style="display:none;" required>
+                    <div class="vehicle-option">
+                        <img src="https://via.placeholder.com/50" alt="Auto">
+                    </div>
+                </label>
+                <label>
+                    <input type="radio" name="vehicle_type" value="hulajnoga" style="display:none;" required>
+                    <div class="vehicle-option">
+                        <img src="https://via.placeholder.com/50" alt="Hulajnoga">
+                    </div>
+                </label>
+            </div>
+
+            <button type="submit" class="submit-button">Zgłoś</button>
+        </form>
+    </div>
+</body>
+</html>
