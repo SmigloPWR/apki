@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}Strona Główna{% endblock %}
-
-{% block content %}
-<h2>Witaj w aplikacji</h2>
-<p>To jest strona główna.</p>
-<a href="/login">Zaloguj się</a> | <a href="/register">Zarejestruj się</a>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wybór roli</title>
+</head>
+<body>
+    <h1>Wybierz swoją rolę</h1>
+    <form method="post">
+        <button name="role" value="user">Użytkownik</button>
+        <button name="role" value="admin">Administrator</button>
+    </form>
+</body>
+</html>

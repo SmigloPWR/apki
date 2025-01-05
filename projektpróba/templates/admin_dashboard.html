@@ -110,7 +110,7 @@ def accept_report(report_id):
         return redirect(url_for('login'))
 
     for report in reports:
-        if report['id'] == report_id:
+        if report['id'] == report_id and report['status'] == 'oczekujące':
             report['status'] = 'zaakceptowane'
             user_progress[report['vehicle_type']] += 1
             update_badges()
@@ -125,7 +125,7 @@ def reject_report(report_id):
         return redirect(url_for('login'))
 
     for report in reports:
-        if report['id'] == report_id:
+        if report['id'] == report_id and report['status'] == 'oczekujące':
             report['status'] = 'odrzucone'
             break
     return redirect(url_for('admin_dashboard'))

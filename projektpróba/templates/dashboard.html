@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona Główna</title>
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .map-container {
             position: relative;
-            height: 100vh;
             width: 100%;
+            height: 100%;
         }
 
-        iframe {
+        .map-container iframe {
             width: 100%;
             height: 100%;
             border: none;
@@ -22,53 +32,48 @@
 
         .bottom-menu {
             position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: #f9f9f9;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 10px 20px;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+            gap: 10px;
+            z-index: 10;
         }
 
         .button {
-            flex: 1;
-            margin: 0 10px;
-            padding: 15px 0;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
             text-align: center;
             border-radius: 20px;
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
             cursor: pointer;
-            transition: background-color 0.3s;
+            color: white;
+            text-decoration: none;
         }
 
         .button-yellow {
             background-color: #c4b004;
-            color: white;
-            border: none;
         }
 
         .button-yellow:hover {
-            background-color: #b3a203;
+            background-color: #a89a03;
         }
 
         .button-blue {
             background-color: #5b5bff;
-            color: white;
-            border: none;
         }
 
         .button-blue:hover {
-            background-color: #4a4acb;
+            background-color: #4a4ae6;
         }
     </style>
 </head>
 <body>
+    <!-- Kontener mapy -->
     <div class="map-container">
-        <!-- Mapa - Możesz zastąpić własnym kodem np. Google Maps -->
+        <!-- Mapa - Google Maps -->
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19944.65944566992!2d17.02127645718827!3d51.10788528780351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc2756397c18f%3A0x110c7eac087d8d4!2sWroc%C5%82aw!5e0!3m2!1spl!2spl!4v1674578341290!5m2!1spl!2spl"
             allowfullscreen>

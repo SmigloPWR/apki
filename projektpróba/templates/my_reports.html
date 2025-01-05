@@ -1,86 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Moje zgłoszenia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Zgłoszenia</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             background-color: #f9f9f9;
         }
 
         .report {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 90%;
+            max-width: 400px;
             background-color: #5b5bff;
             color: white;
-            margin: 10px auto;
             padding: 10px;
-            width: 80%;
+            margin-bottom: 10px;
             border-radius: 10px;
+            text-align: center;
         }
 
-        .report button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .report .accept {
-            color: green;
-        }
-
-        .report .reject {
-            color: red;
-        }
-
-        .report .pending {
-            color: gray;
-        }
-
-        .back-button {
-            margin-top: 20px;
-            padding: 10px 20px;
+        button {
+            padding: 10px;
             background-color: #5b5bff;
             color: white;
             border: none;
             border-radius: 10px;
+            font-size: 16px;
             cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a4ae6;
         }
     </style>
 </head>
 <body>
-    <h1>Moje zgłoszenia</h1>
-
-    {% for report in reports %}
-    <div class="report">
-        <span>{{ report.title }}</span>
-        <span>
-            {% if report.status == 'zaakceptowane' %}
-                <button class="accept">✔</button>
-            {% elif report.status == 'odrzucone' %}
-                <button class="reject">✖</button>
-            {% else %}
-                <button class="pending">...</button>
-            {% endif %}
-        </span>
-
-        {% if session['role'] == 'admin' %}
-        <form method="post" action="/update_status/{{ report.id }}">
-            <select name="status">
-                <option value="zaakceptowane">Zaakceptowane</option>
-                <option value="odrzucone">Odrzucone</option>
-                <option value="oczekujące">Oczekujące</option>
-            </select>
-            <button type="submit">Zmień</button>
-        </form>
-        {% endif %}
-    </div>
-    {% endfor %}
-
-    <a href="/" class="back-button">Powrót</a>
+    <div class="report">Zgłoszenie nr 1 - Oczekujące</div>
+    <div class="report">Zgłoszenie nr 2 - Zaakceptowane</div>
+    <div class="report">Zgłoszenie nr 3 - Odrzucone</div>
+    <button onclick="location.href='/dashboard';">Powrót</button>
 </body>
 </html>

@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Moje odznaki</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odznaki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .badge {
+            width: 90%;
+            max-width: 400px;
+            background-color: #5b5bff;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #5b5bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a4ae6;
+        }
+    </style>
 </head>
 <body>
-    <h1>Moje odznaki</h1>
-    <ul>
-        <li>Brązowa</li>
-        <li>Srebrna</li>
-        <li>Złota</li>
-    </ul>
-    <a href="/dashboard">Powrót</a>
+    <div class="badge">Brązowa - 1/10 rowerów</div>
+    <div class="badge">Srebrna - 0/10 rowerów i aut</div>
+    <div class="badge">Złota - 0/10 rowerów, aut, hulajnóg</div>
+    <button onclick="location.href='/dashboard';">Powrót</button>
 </body>
 </html>

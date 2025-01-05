@@ -1,133 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Zgłoś</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zgłoś Pojazd</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
             background-color: #f9f9f9;
         }
 
-        .report-container {
+        .container {
             width: 90%;
             max-width: 400px;
-            margin-top: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
             text-align: center;
         }
 
-        .report-container img {
+        img {
             width: 100%;
-            height: auto;
-        }
-
-        .vehicle-selection {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-
-        .vehicle-option {
-            width: 70px;
-            height: 70px;
-            border: 2px solid #5b5bff;
             border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        .vehicle-option img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .vehicle-option:hover {
-            background-color: #eaeaff;
-        }
-
-        .submit-button {
-            display: block;
-            width: 90%;
-            margin: 20px auto;
-            padding: 15px;
+        button {
+            margin: 20px 0;
+            padding: 10px;
             background-color: #5b5bff;
             color: white;
-            font-size: 16px;
             border: none;
             border-radius: 10px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        .submit-button:hover {
-            background-color: #4a4acb;
+        button:hover {
+            background-color: #4a4ae6;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icon img {
+            width: 50px;
+            height: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="report-container">
-        <!-- Obraz zgłoszenia -->
-        <img src="https://via.placeholder.com/400x200" alt="Zdjęcie zgłoszenia" id="uploaded-image">
-
-        <!-- Form przesyłania zdjęcia -->
-        <form method="post" enctype="multipart/form-data">
-            <input type="file" name="photo" accept="image/*" onchange="previewImage(event)" required>
-        </form>
-
-        <!-- Wybór pojazdu -->
-        <div class="vehicle-selection">
-            <div class="vehicle-option" onclick="selectVehicle('rower')">
-                <img src="https://via.placeholder.com/50" alt="Rower">
+    <div class="container">
+        <img src="static/images/sample_car.jpg" alt="Vehicle Image">
+        <button>Zgłoś</button>
+        <div class="icons">
+            <div class="icon">
+                <img src="static/images/bike.png" alt="Rower">
             </div>
-            <div class="vehicle-option" onclick="selectVehicle('auto')">
-                <img src="https://via.placeholder.com/50" alt="Auto">
+            <div class="icon">
+                <img src="static/images/car.png" alt="Samochód">
             </div>
-            <div class="vehicle-option" onclick="selectVehicle('hulajnoga')">
-                <img src="https://via.placeholder.com/50" alt="Hulajnoga">
+            <div class="icon">
+                <img src="static/images/scooter.png" alt="Hulajnoga">
             </div>
         </div>
-
-        <!-- Przycisk zgłaszania -->
-        <button class="submit-button" onclick="submitReport()">Zgłoś</button>
     </div>
-
-    <script>
-        let selectedVehicle = null;
-
-        // Podgląd przesłanego zdjęcia
-        function previewImage(event) {
-            const reader = new FileReader();
-            reader.onload = function() {
-                const output = document.getElementById('uploaded-image');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-
-        // Wybór pojazdu
-        function selectVehicle(vehicle) {
-            selectedVehicle = vehicle;
-            alert(`Wybrano: ${vehicle}`);
-        }
-
-        // Zgłaszanie zgłoszenia
-        function submitReport() {
-            if (!selectedVehicle) {
-                alert("Wybierz typ pojazdu przed zgłoszeniem!");
-                return;
-            }
-            alert(`Zgłoszenie przesłane z typem pojazdu: ${selectedVehicle}`);
-        }
-    </script>
 </body>
 </html>
